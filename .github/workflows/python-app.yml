@@ -25,5 +25,6 @@ jobs:
         user_name : ${{ secrets.USER_NAME }}
         warehouse : ${{ secrets.WAREHOUSE_NAME }}
       run: |
+        python utils/upload_to_snowflake.py -db True
+        python utils/upload_to_snowflake.py -t customer -i customer.csv
         python src/main.py
-      
