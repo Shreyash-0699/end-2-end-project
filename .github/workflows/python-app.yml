@@ -18,6 +18,12 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    # - name: Run main code
-    #   run: |
-    #     streamlit run src/main.py
+    - name: Run main code
+      env: 
+        account_name: ${{ secrets.ACCOUNT_NAME }}
+        pass_key : ${{ secrets.PASSWORD }}
+        user_name : ${{ secrets.USER_NAME }}
+        warehouse : ${{ secrets.WAREHOUSE_NAME }}
+      run: |
+        python src/main.py
+      
