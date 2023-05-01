@@ -14,14 +14,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-account = os.environ.get('ACCOUNT_NAME')
-user_key = os.environ.get('USER_NAME')
-pass_key = os.environ.get('PASSWORD')
-warehouse = os.environ.get('WAREHOUSE_NAME')
+account = os.environ.get('account_name')
+user_key = os.environ.get('user_name')
+pass_key = os.environ.get('pass_key')
+warehouse = os.environ.get('warehouse')
 
-access_key = os.environ.get('ACCESS_KEY')
-secret_key = os.environ.get('SECRET_KEY')
-bucket = os.environ.get('BUCKET')
+access_key = os.environ.get('access')
+secret_key = os.environ.get('secret')
+bucket = os.environ.get('bucket')
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-db', '--create_db', default = False, type = bool)
