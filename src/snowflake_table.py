@@ -40,9 +40,9 @@ def create_s3_snowflake_table(account_name, user_nam, password, warehouse_name, 
   cursor.close()
   conn.close()
   
-create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_original, ORIGINAL)
-create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_customer, CUSTOMER)
-create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_transaction, TRANSACTION)
-create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_product_details, PRODUCT_DETAILS)
-create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_customer_details, CUSTOMER_DETAILS)
+create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_original, "ORIGINAL")
+create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_customer, "CUSTOMER")
+create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_transaction, "TRANSACTION")
+create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_product_details, "PRODUCT_DETAILS")
+create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_customer_details, "CUSTOMER_DETAILS")
   
