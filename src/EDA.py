@@ -17,9 +17,9 @@ bucket = os.environ.get('bucket')
 
 s3 = boto3.client('s3', aws_access_key_id = access_key, aws_secret_access_key = secret_key)
 
-df_original = get_df(bucket, 'original.csv')
-df_customer = get_df(bucket, 'customer.csv')
-df_transaction = get_df(bucket, 'transaction.csv')
+df_original = get_df(bucket, 'original.csv', s3)
+df_customer = get_df(bucket, 'customer.csv', s3)
+df_transaction = get_df(bucket, 'transaction.csv', s3)
 
 df_original['date'] = pd.to_datetime(df_original['date']).dt.date
 
