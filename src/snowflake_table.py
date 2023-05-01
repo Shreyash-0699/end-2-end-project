@@ -3,6 +3,8 @@ import pandas
 import numpy
 import matplotlib
 import boto3
+import os
+from botocore.exceptions import NoCredentialsError
 
 account = os.environ.get('account_name')
 user_key = os.environ.get('user_name')
