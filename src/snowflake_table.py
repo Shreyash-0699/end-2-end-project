@@ -26,7 +26,7 @@ df_customer_details = get_df(bucket, 'customer_detail.csv', s3)
 def create_s3_snowflake_table(account_name, user_nam, password, warehouse_name, df, table_name):
   conn, cursor = create_connection(account, user_key, pass_key, warehouse)
   
-  df.drop(columns = ['Unnamed : 0'], inplace = True, errors = 'ignore')
+  df.drop(columns=['Unnamed: 0'], inplace=True, errors = 'ignore')
   col_type, values = get_schema(df)
   
   cursor.execute("USE clv")
