@@ -39,11 +39,11 @@ jobs:
         bucket : ${{ secrets.BUCKET }}
         secret : ${{ secrets.SECRET_KEY }}
       run: |
-        # python utils/operate.py -db True
-        # python utils/opreate.py -t customer -i cust.csv
-        # python utils/operate.py -s3 customer.csv -i cust.csv
-        # python utils/opreate.py -t transaction -i tx_product.csv
-        # python utils/operate.py -s3 transaction.csv -si tx_product.csv
-        # python utils/operate.py -t original -i original.csv
-        # python utils/operate.py -s3 original.csv -si original.csv
+        # python src/operate.py -db True
+        # python src/opreate.py -t customer -i cust.csv
+        # python src/operate.py -s3 customer.csv -i cust.csv
+        # python src/opreate.py -t transaction -i tx_product.csv
+        # python src/operate.py -s3 transaction.csv -si tx_product.csv
+        # python src/operate.py -t original -i original.csv
+        # python src/operate.py -s3 original.csv -si original.csv
         python src/EDA.py
