@@ -42,7 +42,9 @@ def populate_table(account_name, user_name, password, warehouse_name, csv_path, 
   conn, cursor = create_connection(account, user_name, password, warehouse_name)
   
   cursor.execute("USE clv")
-  cursor.execute(f"COPY INTO {table_name} FROM s3://{bucket}/{csv_path} file_format= (type = csv field_delimiter=',' skip_header=1);")
+  cursor.execute("CREATE OR REPLACE SCHEMA extrenal_stages")
+  cursor.execute(f"CREATE OR REPLACE STAGE clv.external_stages.aws_stage url = 's3://{bucket}' credentials = (aws_key_id = '{access_key}' aws_secret_key = '{secret_key}')") 
+  cursor.execute(f"COPY INTO {table_name} FROM @clv.external_stages.aws_stage file_format= (type = csv field_delimiter=',' skip_header=1) files = ('{csv_path}')")
   
   conn.commit()
   cursor.close()
