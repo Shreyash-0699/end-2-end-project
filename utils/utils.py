@@ -33,7 +33,7 @@ def upload_to_aws(local_file, bucket, s3_file, access, secret):
     '''
     s3 = boto3.client('s3', aws_access_key_id = access, aws_secret_access_key = secret)
     try: 
-        s3.upload_file(local_file, s3_file)
+        s3.upload_file(local_file, bucket, s3_file)
         print("Upload Successful")
         return True
     except FileNotFoundError:
