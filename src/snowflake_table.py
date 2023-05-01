@@ -50,17 +50,17 @@ def populate_table(account_name, user_name, password, warehouse_name, csv_path, 
   
   
 create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_original, "ORIGINAL")
-# populate_table(account, user_key, pass_key, warehouse, 'original_clean.csv', "ORIGINAL")
+populate_table(account, user_key, pass_key, warehouse, 'original_clean.csv', "ORIGINAL")
 
 create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_customer, "CUSTOMER")
-# populate_table(account, user_key, pass_key, warehouse, 'customer_clean.csv', "CUSTOMER")
+populate_table(account, user_key, pass_key, warehouse, 'customer_clean.csv', "CUSTOMER")
 
 create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_transaction, "TRANSACTION")
-# populate_table(account, user_key, pass_key, warehouse, 'transaction_clean.csv', "TRANSACTION")
+populate_table(account, user_key, pass_key, warehouse, 'transaction_clean.csv', "TRANSACTION")
 
 create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_product_details, "PRODUCT_DETAILS")
-# populate_table(account, user_key, pass_key, warehouse, 'product_detail.csv', "PRODUCT_DETAILS")
+populate_table(account, user_key, pass_key, warehouse, 'product_detail.csv', "PRODUCT_DETAILS")
 
 create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_customer_details, "CUSTOMER_DETAILS")
-# populate_table(account, user_key, pass_key, warehouse, 'customer_detail.csv', "CUSTOMER_DETAIL")
+populate_table(account, user_key, pass_key, warehouse, 'customer_detail.csv', "CUSTOMER_DETAIL")
   
