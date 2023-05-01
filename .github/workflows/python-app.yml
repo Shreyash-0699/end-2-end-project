@@ -46,4 +46,5 @@ jobs:
         # python src/operate.py -s3 transaction.csv -si tx_product.csv
         # python src/operate.py -t original -i original.csv
         # python src/operate.py -s3 original.csv -si original.csv
-        python src/EDA.py
+        # python src/EDA.py
+        python src/snowflake_table.py
