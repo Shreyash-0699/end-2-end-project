@@ -11,9 +11,9 @@ import os
 
 load_dotenv()
 
-access_key = os.environ.get('ACCESS_KEY')
-secret_key = os.environ.get('SECRET_KEY')
-bucket = os.environ.get('BUCKET')
+access_key = os.environ.get('access')
+secret_key = os.environ.get('secret')
+bucket = os.environ.get('bucket')
 
 s3 = boto3.client('s3', aws_access_key_id = access_key, aws_secret_access_key = secret_key)
 
