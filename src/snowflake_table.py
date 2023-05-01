@@ -42,7 +42,7 @@ def populate_table(account_name, user_name, password, warehouse_name, csv_path, 
   conn, cursor = create_connection(account, user_name, password, warehouse_name)
   
   cursor.execute("USE clv")
-  cursor.execute(f"COPY INTO {table_name} FROM s3://{bucket}/{csv_path} file_format = (type = csv field_delimiter = ',' skip_header = 1);
+  cursor.execute(f"COPY INTO {table_name} FROM s3://{bucket}/{csv_path} file_format= (type = csv field_delimiter=',' skip_header=1);")
   
   conn.commit()
   cursor.close()
