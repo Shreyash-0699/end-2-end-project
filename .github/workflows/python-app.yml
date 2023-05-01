@@ -1,7 +1,18 @@
 name: Python application
+
 on:
-  push:
-    branches: ["main"]
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      Customer:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Customer Lifetime Value'
+        # Default value if no value is explicitly provided
+        default: "Across all products"
+        # Input has to be provided for the workflow to run
+        required: true
+        # The data type of the input
+        type: string
 jobs:
   build-project:
     runs-on: ubuntu-latest
@@ -24,7 +35,15 @@ jobs:
         pass_key : ${{ secrets.PASSWORD }}
         user_name : ${{ secrets.USER_NAME }}
         warehouse : ${{ secrets.WAREHOUSE_NAME }}
+        access : ${{ secrets.ACCESS_KEY }}
+        bucket : ${{ secrets.BUCKET }}
+        secret : ${{ secrets.SECRET_KEY }}
       run: |
-        python utils/upload_to_snowflake.py -db True
-        python utils/upload_to_snowflake.py -t customer -i customer.csv
-        python src/main.py
+        # python utils/operate.py -db True
+        # python utils/opreate.py -t customer -i cust.csv
+        # python utils/operate.py -s3 customer.csv -i cust.csv
+        # python utils/opreate.py -t transaction -i tx_product.csv
+        # python utils/operate.py -s3 transaction.csv -si tx_product.csv
+        # python utils/operate.py -t original -i original.csv
+        # python utils/operate.py -s3 original.csv -si original.csv
+        python src/EDA.py
