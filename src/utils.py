@@ -89,8 +89,8 @@ def get_df(bucket, file_name, s3):
     obj = s3.get_object(Bucket = bucket, Key = file_name)
     df = pd.read_csv(obj['Body'])
     
-    # drop the 'Unnamed : 0' column, if it exists
-    df.drop(columns = ['Unnamed : 0'], inplace = True, errors = 'ignore')
+    # drop the 'Unnamed: 0' column, if it exists
+    df.drop(columns = ['Unnamed: 0'], inplace = True, errors = 'ignore')
     return df
 
     
