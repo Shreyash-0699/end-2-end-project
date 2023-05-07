@@ -33,10 +33,10 @@ def create_s3_snowflake_table(account_name, user_name, password, warehouse_name,
   cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
   cursor.execute(f"CREATE TABLE {table_name} ({col_type})")
   
-  for index, row in df.iterrows():
-    sql = f"INSERT INTO {table_name} VALUES ({values})"
-    cursor.execute(sql, tuple(row))
-    conn.commit() 
+#  for index, row in df.iterrows():
+#    sql = f"INSERT INTO {table_name} VALUES ({values})"
+#    cursor.execute(sql, tuple(row))
+#    conn.commit() 
   
   conn.commit()
     
