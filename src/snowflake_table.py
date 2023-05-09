@@ -33,10 +33,10 @@ def create_s3_snowflake_table(account_name, user_name, password, warehouse_name,
   cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
   cursor.execute(f"CREATE TABLE {table_name} ({col_type})")
   
-#  for index, row in df.iterrows():
-#    sql = f"INSERT INTO {table_name} VALUES ({values})"
-#    cursor.execute(sql, tuple(row))
-#    conn.commit() 
+  for index, row in df.iterrows():
+    sql = f"INSERT INTO {table_name} VALUES ({values})"
+    cursor.execute(sql, tuple(row))
+    conn.commit() 
   
   conn.commit()
     
@@ -46,10 +46,10 @@ def create_s3_snowflake_table(account_name, user_name, password, warehouse_name,
   
 create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_original, "ORIGINAL")
 
-create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_customer, "CUSTOMER")
+# create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_customer, "CUSTOMER")
 
-create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_transaction, "TRANSACTION")
+# create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_transaction, "TRANSACTION")
 
-create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_product_details, "PRODUCT_DETAILS")
+# create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_product_details, "PRODUCT_DETAILS")
 
-create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_customer_details, "CUSTOMER_DETAILS")
+# create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_customer_details, "CUSTOMER_DETAILS")
