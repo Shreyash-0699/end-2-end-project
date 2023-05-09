@@ -44,9 +44,9 @@ def create_s3_snowflake_table(account_name, user_name, password, warehouse_name,
   conn.close()
   
   
-create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_original, "ORIGINAL")
+# create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_original, "ORIGINAL")
 
-# create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_customer, "CUSTOMER")
+create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_customer, "CUSTOMER")
 
 # create_s3_snowflake_table(account, user_key, pass_key, warehouse, df_transaction, "TRANSACTION")
 
