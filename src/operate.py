@@ -47,6 +47,7 @@ if args.create_table:
     table_name = args.create_table
     
     df = get_data(csv_path)
+    df.drop(columns=['Unnamed: 0'], inplace=True, errors = 'ignore')
     col_type, values = get_schema(df)
     print(col_type, values)
     
