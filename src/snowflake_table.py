@@ -24,7 +24,7 @@ df_transaction = get_df(bucket, 'transaction_clean.csv', s3)
 df_product_details = get_df(bucket, 'product_detail.csv', s3)
 df_customer_details = get_df(bucket, 'customer_detail.csv', s3)
 
-def create_s3_snowflake_table(account_name, user_name, password, warehouse_name, df, table_name):
+def create_s3_snowflake_table(account_name, user_name, password, warehouse_name, df, table):
   conn, cursor = create_connection(account, user_name, password, warehouse_name)
   
   df.drop(columns=['Unnamed: 0'], inplace=True, errors = 'ignore')
@@ -32,14 +32,14 @@ def create_s3_snowflake_table(account_name, user_name, password, warehouse_name,
   
   cursor.execute("USE clv")
   cursor.execute("USE SCHEMA DEV")
-  cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
-  cursor.execute(f"CREATE TABLE {table_name} ({col_type})")
+  cursor.execute(f"DROP TABLE IF EXISTS {table}")
+  cursor.execute(f"CREATE TABLE {table} ({col_type})")
   
   for index, row in df.iterrows():
     # sql = f"INSERT INTO {table_name} VALUES ({values})"
     # cursor.execute(sql, tuple(row))
     # conn.commit()
-    success, n_rows = snowflake().put(data = df, table_name = table_name)
+    success, n_rows = snowflake().put(data = df, table_name = table)
   
   conn.commit()
     
