@@ -35,6 +35,9 @@ jobs:
         pass_key : ${{ secrets.PASSWORD }}
         user_name : ${{ secrets.USER_NAME }}
         warehouse : ${{ secrets.WAREHOUSE_NAME }}
+        database_name : ${{ secrets.DATABASE_NAME }}
+        schema_name : ${{ secrets.SCHEMA_NAME }}
+        
         access : ${{ secrets.ACCESS_KEY }}
         bucket : ${{ secrets.BUCKET }}
         secret : ${{ secrets.SECRET_KEY }}
