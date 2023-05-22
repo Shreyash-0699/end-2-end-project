@@ -11,6 +11,7 @@ from utils import (create_connection, upload_to_aws, create_database,
 from botocore.exceptions import NoCredentialsError
 import os
 from dotenv import load_dotenv
+from snowflake_connector import DataExtractor as snowflake
 
 load_dotenv()
 
@@ -44,7 +45,7 @@ if args.upload_to_s3:
 if args.create_table: 
     conn, cursor = create_connection(account, user_key, pass_key, warehouse)
     csv_path = args.input_data
-    table_name = args.create_table
+    table = args.create_table
     
     df = get_data(csv_path)
     df.drop(columns=['Unnamed: 0'], inplace=True, errors = 'ignore')
@@ -52,13 +53,15 @@ if args.create_table:
     print(col_type, values)
     
     cursor.execute("USE clv")
-    cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
-    cursor.execute(f"CREATE TABLE {table_name} ({col_type})")      
+    cursor.execute(f"DROP TABLE IF EXISTS {table}")
+    cursor.execute(f"CREATE TABLE {table} ({col_type})")      
     
-    # for index, row in df.iterrows():
+    for index, row in df.iterrows():
+      success, n_rows = snowflake().put(data = df, table_name = table)
     #     sql = f"INSERT INTO {table_name} VALUES ({values})"
     #     cursor.execute(sql, tuple(row))
     #     conn.commit()
+    
         
     cursor.close()
     conn.close()
