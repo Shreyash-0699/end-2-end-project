@@ -42,7 +42,7 @@ jobs:
         bucket : ${{ secrets.BUCKET }}
         secret : ${{ secrets.SECRET_KEY }}
       run: |
-        # python src/operate.py -db True
+        python src/operate.py -db True
         # python src/opreate.py -t customer -i cust.csv
         # python src/operate.py -s3 customer.csv -i cust.csv
         # python src/opreate.py -t transaction -i tx_product.csv
@@ -50,4 +50,4 @@ jobs:
         # python src/operate.py -t original -i original.csv
         # python src/operate.py -s3 original.csv -si original.csv
         # python src/EDA.py
-        python src/snowflake_table.py
+        # python src/snowflake_table.py
