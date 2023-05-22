@@ -5,6 +5,7 @@ import matplotlib
 import boto3
 import os
 from botocore.exceptions import NoCredentialsError
+from snowflake_connector import DataExtractor as snowflake
 
 account = os.environ.get('account_name')
 user_key = os.environ.get('user_name')
