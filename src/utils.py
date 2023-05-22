@@ -45,6 +45,7 @@ def upload_to_aws(local_file, bucket, s3_file, access, secret):
     
 def create_database(name, cursor):
     cursor.execute(f"CREATE OR REPLACE DATABASE {name}")
+    cursor.execute(f"CREATE OR REPLACE SCHEMA DEV")            # adding dev schema to the created database
     
 def get_schema(df:pd.DataFrame) -> Tuple[str,str]:
     
