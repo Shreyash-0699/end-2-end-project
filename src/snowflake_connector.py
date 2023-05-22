@@ -28,7 +28,7 @@ class DataExtractor:
       user = os.environ.get('user_name')
       password = os.environ.get('pass_key')
       account = os.environ.get('account_name')
-      warehouse = os.environ.get('warehouse_name')
+      warehouse = os.environ.get('warehouse')
       database = os.environ.get('database_name')
       schema = os.environ.get('schema_name')
     )
