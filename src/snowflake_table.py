@@ -30,6 +30,7 @@ def create_s3_snowflake_table(account_name, user_name, password, warehouse_name,
   col_type, values = get_schema(df)
   
   cursor.execute("USE clv")
+  cursor.execute("USE SCHEMA DEV")
   cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
   cursor.execute(f"CREATE TABLE {table_name} ({col_type})")
   
