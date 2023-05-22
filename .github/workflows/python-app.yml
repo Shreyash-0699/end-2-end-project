@@ -50,4 +50,4 @@ jobs:
         # python src/operate.py -t original -i original.csv
         # python src/operate.py -s3 original.csv -si original.csv
         # python src/EDA.py
-        # python src/snowflake_table.py
+        python src/snowflake_table.py
